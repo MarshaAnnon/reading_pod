@@ -1,4 +1,4 @@
-class Book_Pod < ApplicationRecord
+class BookPod < ApplicationRecord
 
     belongs_to :user 
     belongs_to :pod
