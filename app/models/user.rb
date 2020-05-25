@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   
   has_many :user_pods
-  has_many :users, through: :user_pods
+  has_many :pods, through: :user_pods
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

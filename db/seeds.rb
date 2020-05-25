@@ -3,31 +3,38 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movy = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movy.first)
 
-User.create(name: Faker::Name.name, professional_field: Faker::Job.field, bio: Faker::Lorem.sentence(word_count: 50), email: Faker::Internet.email, password: "password")
-User.create(name: Faker::Name.name, professional_field: Faker::Job.field, bio: Faker::Lorem.sentence(word_count: 50), email: Faker::Internet.email, password: "password")
-User.create(name: Faker::Name.name, professional_field: Faker::Job.field, bio: Faker::Lorem.sentence(word_count: 50), email: Faker::Internet.email, password: "password")
-User.create(name: Faker::Name.name, professional_field: Faker::Job.field, bio: Faker::Lorem.sentence(word_count: 50), email: Faker::Internet.email, password: "password")
-User.create(name: Faker::Name.name, professional_field: Faker::Job.field, bio: Faker::Lorem.sentence(word_count: 50), email: Faker::Internet.email, password: "password")
+10.times do
+User.create(
+    name: Faker::Name.name, 
+    professional_field: Faker::Job.field, 
+    bio: Faker::Lorem.sentence(word_count: 50), 
+    email: Faker::Internet.email, 
+    password: "password"
+    )
+end
 
-Book.create(title: Faker::Book.title, author: Faker::Book.author, author_bio: Faker::Lorem.sentence(word_count: 50), book_summary: Faker::Lorem.sentence(word_count: 50)
-Book.create(title: Faker::Book.title, author: Faker::Book.author, author_bio: Faker::Lorem.sentence(word_count: 50), book_summary: Faker::Lorem.sentence(word_count: 50)
-Book.create(title: Faker::Book.title, author: Faker::Book.author, author_bio: Faker::Lorem.sentence(word_count: 50), book_summary: Faker::Lorem.sentence(word_count: 50)
-Book.create(title: Faker::Book.title, author: Faker::Book.author, author_bio: Faker::Lorem.sentence(word_count: 50), book_summary: Faker::Lorem.sentence(word_count: 50)
-Book.create(title: Faker::Book.title, author: Faker::Book.author, author_bio: Faker::Lorem.sentence(word_count: 50), book_summary: Faker::Lorem.sentence(word_count: 50)
+10.times do
+Book.create(
+    byebug
+    title: Faker::Book.title, 
+    author: Faker::Book.author, 
+    author_bio: Faker::Lorem.sentence(word_count: 50), 
+    book_summary: Faker::Lorem.sentence(word_count: 50)
+    )
+end
 
-Pod.create(name: Faker::GreekPhilosophers.name, current_book: Faker::Book.title)
-Pod.create(name: Faker::GreekPhilosophers.name, current_book: Faker::Book.title)
-Pod.create(name: Faker::GreekPhilosophers.name, current_book: Faker::Book.title)
-Pod.create(name: Faker::GreekPhilosophers.name, current_book: Faker::Book.title)
-Pod.create(name: Faker::GreekPhilosophers.name, current_book: Faker::Book.title)
+10.times do
+    Pod.create(
+    pod_name: Faker::GreekPhilosophers.name, 
+    current_book: Faker::Book.title
+    )
+end
 
-Category.create(category: Faker::Job.field)
-Category.create(category: Faker::Job.field)
-Category.create(category: Faker::Job.field)
-Category.create(category: Faker::Job.field)
-Category.create(category: Faker::Job.field)
-
-
+10.times do
+    Category.create(
+    name: Faker::Job.field
+    )
+end
