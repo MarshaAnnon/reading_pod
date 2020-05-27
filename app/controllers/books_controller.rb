@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.new(bok_params)
+        @book = Book.new(book_params)
         binding.pry
         if @book.save
             redirect_to pod_path

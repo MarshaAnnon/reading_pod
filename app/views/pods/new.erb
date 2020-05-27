@@ -1,15 +1,23 @@
-<%= form_with model: @pod do | f | %>
+<% if @pod.errors.any? %>
+    <h4 class="error"><%= @pod.errors.full_messages.to_sentence %></h4>
+<% end %>
+
+<%= form_with model: @pod, local: true do | f | %> <!-- need to Post this so it actually creates something-->
     <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label "Book of the Month" %>
-    <%= f.text_field :current_book %>
-    <%= f.label "Book Title" %>
-    <%= f.text_field :title %><!-- need to associate the book -->
-    <%= f.label "Book Author" %>
-    <%= f.text_field :author %><!-- need to associate the book -->
-    <%= f.label "Author Bio" %>
-    <%= f.text_field :author_bio %><!-- need to associate the book -->
-    <%= f.label "Book Summary" %>
-    <%= f.text_field :book_summary %><!-- need to associate the book -->
+    <%= f.text_field :name, class: @pod.errors.any? ? "error-field" : nil %><br><br>
+    <%= f.fields_for :book do |b| %>
+        <%= b.label "Book of the Month" %>
+        <%= b.text_field :current_book %><br><br>
+        <%= b.label "Book Author" %>
+        <%= b.text_field :author %><br><br><!-- need to associate the book -->
+        <%= b.label "Author Bio" %>
+        <%= b.text_area :author_bio %><br><br><!-- need to associate the book -->
+        <%= b.label "Book Summary" %>
+        <%= b.text_area :book_summary %><br><br><!-- need to associate the book -->
+    <% end %>
     <%= f.submit "Create Pod" %>
 <% end %>
+<!-- the pod accepted nested atrributes for the book -->
+<!-- insert that line into the join table -->
+<!-- need to add a fields for after the book-->
+<!-- check out corinna's nested forms lecture-->

@@ -4,21 +4,21 @@
 <br>
 <br>
 <br>
-<%= button_to "Create Reading Pod", new_user_pod_path, method: "get" %>
+<%#= button_to "Create Reading Pod", new_user_pod_path, method: "get" %>
 
 
 <!-- This page should also display an image of the book cover, the books attributes - title, author, author_bio, book_summary
 <%#= @pod.book_pods.title %>??
-STRETCH GOALS - links to purchase the book (physical & audio). Weekly prods. 
+STRETCH GOALS - links to purchase the book (physical & audio). Weekly prods. I think I need to assign an overall admin who can edit and update the pods
 
-< button_to "Join Reading Pod", ??? would this update action, method: "get" %>
+< button_to "Join Reading Pod", ??? would this update action, method: "patch" %>
 
 - Join this pod should add this pod to the users pod listing
 - It should indicate that status has changed and the user is now a member of this pod
 - It should display a message welcoming the user to the pod
 - It should start a countdown to the book read finishing time.
 
-I think I need to assign an overall admin who can edit and update the pods
+
 
 
     create_table "book_pods", force: :cascade do |t|

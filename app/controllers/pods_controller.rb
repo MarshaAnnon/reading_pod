@@ -7,15 +7,14 @@ class PodsController < ApplicationController
     end
 
     def new
-        @pod = current_user.pod.build
+        @pod = current_user.pods.new
     end
 
     def create
-        @pod = current_user.pod.build
-        binding.pry
-        if pod.save?
-            current_user.pod << @pod
-            redirect_to pod_path
+        @pod = current_user.pods.build(pod_params)
+        if @pod.save
+            current_user.pods << @pod
+            redirect_to pod_path(current_user.pods)#There is something wrong here. Where should this take the user - you need to think more - Maybe this should go to the newly created pod show page
         else
             redirect_to pods_path
         end
@@ -23,7 +22,7 @@ class PodsController < ApplicationController
 
     def show
         if !@pod
-            redirect_to @pod
+            redirect_to pods_path
         end
     end
 
@@ -54,7 +53,7 @@ class PodsController < ApplicationController
     private
 
     def pod_params
-        require.params(:pod).permit(:pod_name, :current_book, book_attribute:[:title, :author, :author_bio, :book_summary])
+        params.require(:pod).permit(:pod_name, :current_book, book_attribute:[:title, :author, :author_bio, :book_summary])
     end
 
     def set_pod

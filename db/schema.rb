@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_234958) do
+ActiveRecord::Schema.define(version: 2020_05_27_161213) do
 
   create_table "book_pods", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "book_id"
     t.integer "pod_id"
   end
 
