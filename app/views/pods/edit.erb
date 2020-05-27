@@ -1,0 +1,19 @@
+<% if @pod.errors.any? %>
+    <h4 class="error"><%= @pod.errors.full_messages.to_sentence %></h4>
+<% end %>
+
+<%= form_with model: @pod, local: true do | f | %> 
+    <%= f.label :name %>
+    <%= f.text_field :name, class: @pod.errors.any? ? "error-field" : nil %><br><br>
+    <%= f.fields_for :book do |b| %>
+        <%= b.label "Book of the Month" %>
+        <%= b.text_field :current_book %><br><br>
+        <%= b.label "Book Author" %>
+        <%= b.text_field :author %><br><br>
+        <%= b.label "Author Bio" %>
+        <%= b.text_area :author_bio %><br><br>
+        <%= b.label "Book Summary" %>
+        <%= b.text_area :book_summary %><br><br>
+    <% end %>
+    <%= f.submit "Create Pod" %>
+<% end %>
