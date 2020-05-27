@@ -8,6 +8,11 @@ class Pod < ApplicationRecord
     accepts_nested_attributes_for :books
 
     #if time write a custom writer
+    #def book_attributes=(book_attributes)
+    #    binding.pry
+    #    @book = self.books.build(book_attributes)
+    #    @book.save
+    #end
 
 end
 

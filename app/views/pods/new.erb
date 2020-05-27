@@ -3,21 +3,24 @@
 <% end %>
 
 <%= form_with model: @pod, local: true do | f | %> <!-- need to Post this so it actually creates something-->
-    <%= f.label :name %>
-    <%= f.text_field :name, class: @pod.errors.any? ? "error-field" : nil %><br><br>
+    <%= f.label :pod_name %>
+    <%= f.text_field :pod_name, class: @pod.errors.any? ? "error-field" : nil %><br><br>
     <%= f.fields_for :book do |b| %>
         <%= b.label "Book of the Month" %>
-        <%= b.text_field :current_book %><br><br>
+        <%= b.text_field :title %><br><br>
         <%= b.label "Book Author" %>
-        <%= b.text_field :author %><br><br><!-- need to associate the book -->
+        <%= b.text_field :author %><br><br>
         <%= b.label "Author Bio" %>
-        <%= b.text_area :author_bio %><br><br><!-- need to associate the book -->
+        <%= b.text_area :author_bio %><br><br>
         <%= b.label "Book Summary" %>
-        <%= b.text_area :book_summary %><br><br><!-- need to associate the book -->
+        <%= b.text_area :book_summary %><br><br>
     <% end %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %><br><br>
     <%= f.submit "Create Pod" %>
 <% end %>
-<!-- the pod accepted nested atrributes for the book -->
-<!-- insert that line into the join table -->
-<!-- need to add a fields for after the book-->
-<!-- check out corinna's nested forms lecture-->
+<!-- Parameters:
+{"authenticity_token"=>"qT2liBrM4efGFFxQFAipJVMI5dFJaN1OfdvQEx1o9PxvDh9qkJA01NyVk4kxSBZ70iukg1+m67vEbYp9+1BE5w==",
+ "pod"=>{"pod_name"=>"The Imposters", "book"=>{"title"=>"The only way is up", "author"=>"yaz", "author_bio"=>"up, uppity, up", "book_summary"=>"uplifting"}, "category_id"=>"8"},
+ "commit"=>"Create Pod"} -->
+
+ <!-- from here, when I hit create, it takes me to the pods show page and lists the pods name but none of the book attributes??>
