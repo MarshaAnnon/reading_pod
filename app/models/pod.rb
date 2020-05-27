@@ -5,7 +5,7 @@ class Pod < ApplicationRecord
     has_many :users, through: :user_pods
     belongs_to :category, optional: true
 
-    accepts_nested_attributes_for :books
+    accepts_nested_attributes_for :books, reject_if: proc { |attr| attributes['title'].blank?  }
 
     #if time write a custom writer
     #def book_attributes=(book_attributes)
