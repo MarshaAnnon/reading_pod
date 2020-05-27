@@ -1,0 +1,7 @@
+<h3>Reading Pods</h3>
+
+<ul>
+<% @pods.each do | pod | %>
+        <li> <%= link_to(pod.pod_name, pod) %></li>
+<% end %>
+</ul>
