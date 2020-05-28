@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "application#home"
   resources :pods
   resources :books
-  
+  resources :users, only: [:show, :edit, :update, :destroy]
   devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: 'omniauth'}
 
   resources :pods, only: [:show] do
