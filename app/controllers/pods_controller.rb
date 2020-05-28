@@ -11,7 +11,6 @@ class PodsController < ApplicationController
     end
 
     def create
-        raise params
         @pod = current_user.pods.build(pod_params)
         if @pod.save
             @pod.books.build

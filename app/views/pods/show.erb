@@ -1,10 +1,13 @@
 <%= @pod.pod_name %><br>
-<%= @pod.current_book %>
+<% @pod.book_attributes.each do | attr | %>
+<li> <%= attr.title %></li>
+<% end %>
 <br>
 <br>
 <br>
 <br>
 <%= button_to "Create Reading Pod", new_pod_path %>
+
 
 <!-- This page should also display an image of the book cover, the books attributes - title, author, author_bio, book_summary
 <%#= @pod.book_pods.title %>??
@@ -17,15 +20,3 @@ STRETCH GOALS - links to purchase the book (physical & audio). Weekly prods. I t
 - It should display a message welcoming the user to the pod
 - It should start a countdown to the book read finishing time.
 
-
-
-
-    create_table "book_pods", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "pod_id"
-
-  create_table "books", force: :cascade do |t|
-    t.string ""
-    t.string ""
-    t.text ""
-    t.text ""-->
