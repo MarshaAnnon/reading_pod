@@ -1,22 +1,30 @@
-<%= @pod.pod_name %><br>
-<% @pod.book_attributes.each do | attr | %>
-<li> <%= attr.title %></li>
+<h2>Here is your newly created Reading Pod</h2><br><br>
+
+<%= @pod.pod_name %><br><br>
+<% @pod.books.each do | attr | %>
+    <li><%= attr.title %></li><br><br>
+    <li><%= attr.author %></li><br><br>
+    <li><%= attr.author_bio %></li><br><br>
+    <li><%= attr.book_summary %></li><br><br>
 <% end %>
 <br>
 <br>
 <br>
 <br>
+
+<%= button_to "Join Reading Pod", new_pod_path %>
 <%= button_to "Create Reading Pod", new_pod_path %>
 
+<!-- If current_user joins then Join this pod should add this pod to the users pod listing
+- It should indicate that status has changed and the user is now a member of this pod
+- It should display a message welcoming the user to the pod Else do nothing -->
 
-<!-- This page should also display an image of the book cover, the books attributes - title, author, author_bio, book_summary
-<%#= @pod.book_pods.title %>??
+<!-- 
 STRETCH GOALS - links to purchase the book (physical & audio). Weekly prods. I think I need to assign an overall admin who can edit and update the pods
 
 < button_to "Join Reading Pod", ??? would this update action, method: "patch" %>
 
-- Join this pod should add this pod to the users pod listing
-- It should indicate that status has changed and the user is now a member of this pod
-- It should display a message welcoming the user to the pod
-- It should start a countdown to the book read finishing time.
+Ternary operator 
+- 
+- STRETCH GOAL - It should start a countdown to the book read finishing time.-->
 
