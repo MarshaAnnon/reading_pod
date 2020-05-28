@@ -9,12 +9,11 @@ class RegistrationsController < Devise::RegistrationsController
             params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :name, :professional_field, :bio)
         end
 
-    protected
-
-        def update_resource(resource, params)
-            resource.update_without_password(params)
+        def user_params
+            params.require(:user).permit(:name, :professional_field, :bio, pod_attributes: [:pod_name])
         end
-end
 
+        
+end
 
     

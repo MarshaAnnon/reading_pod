@@ -8,6 +8,7 @@ class PodsController < ApplicationController
 
     def new
         @pod = current_user.pods.build
+        @pod.books.build
     end
 
     def create
@@ -54,7 +55,7 @@ class PodsController < ApplicationController
     private
 
     def pod_params
-        params.require(:pod).permit(:pod_name, :current_book, category_id:[], book_attributes:[:title, :author, :author_bio, :book_summary])
+        params.require(:pod).permit(:pod_name, :current_book, category_id:[], books_attributes:[:title, :author, :author_bio, :book_summary])
     end
 
     def set_pod

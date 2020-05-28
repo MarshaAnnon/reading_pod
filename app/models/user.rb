@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :user_pods
   has_many :pods, through: :user_pods
 
+  accepts_nested_attributes_for :pods
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
